@@ -4,7 +4,7 @@ import AdminLayout from '../../components/AdminLayout'
 import { supabase } from '../../lib/supabase'
 
 function Badge({ status }) {
-  const map = { confirmed: 'badge-green', open: 'badge-blue', pending: 'badge-yellow', offered: 'badge-yellow', completed: 'badge-green', cancelled: 'badge-red', adjustment_requested: 'badge-yellow' }
+  const map = { confirmed: 'badge-green', open: 'badge-blue', pending: 'badge-yellow', offered: 'badge-yellow', completed: 'badge-green', denied: 'badge-red', cancelled: 'badge-red', adjustment_requested: 'badge-yellow' }
   return <span className={`badge ${map[status] || 'badge-gray'}`}>{status.replace('_', ' ')}</span>
 }
 
@@ -253,6 +253,7 @@ export default function AdminCollabs() {
                     <option value="offered">Offered</option>
                     <option value="confirmed">Confirmed</option>
                     <option value="completed">Completed</option>
+                    <option value="denied">Denied</option>
                     <option value="cancelled">Cancelled</option>
                   </select>
                 </div>
