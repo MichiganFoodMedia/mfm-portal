@@ -56,7 +56,7 @@ export default function AdminCollabs() {
       collab_time: form.collab_time || null,
       creator_pay: parseInt(form.creator_pay) || 0,
       deliverables: form.deliverables,
-      status: form.creator_id ? 'confirmed' : 'open',
+      status: form.creator_id ? 'offered' : 'open',
     })
     await fetchAll()
     setSaving(false)
