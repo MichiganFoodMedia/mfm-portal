@@ -13,8 +13,8 @@ const NAV = [
 ]
 
 function Badge({ status }) {
-  const map = { confirmed: 'badge-green', open: 'badge-blue', pending: 'badge-yellow', completed: 'badge-green', cancelled: 'badge-red', paid: 'badge-green', unpaid: 'badge-yellow' }
-  return <span className={`badge ${map[status] || 'badge-gray'}`}>{status}</span>
+  const map = { confirmed: 'badge-green', open: 'badge-blue', pending: 'badge-yellow', completed: 'badge-green', cancelled: 'badge-red', offered: 'badge-yellow', adjustment_requested: 'badge-yellow' }
+  return <span className={`badge ${map[status] || 'badge-gray'}`}>{status.replace('_', ' ')}</span>
 }
 
 export default function Dashboard() {
@@ -39,7 +39,7 @@ export default function Dashboard() {
         .select('*, restaurants(name, location)')
         .eq('creator_id', user.id)
         .order('created_at', { ascending: false })
-        .limit(5)
+        .limit(10)
       setCollabs(myCollabs || [])
       setLoading(false)
     }
@@ -49,6 +49,7 @@ export default function Dashboard() {
   if (loading) return <div className="loading-screen">Loading...</div>
 
   const activeCollabs = collabs.filter(c => c.status === 'confirmed')
+  const offeredCollabs = collabs.filter(c => c.status === 'offered' || c.status === 'pending')
   const pendingPay = collabs.filter(c => c.payment_status === 'unpaid' && c.status === 'completed').reduce((s, c) => s + (c.creator_pay || 0), 0)
 
   return (
@@ -76,6 +77,28 @@ export default function Dashboard() {
         </div>
       </div>
 
+      {/* Action required - offers waiting */}
+      {offeredCollabs.length > 0 && (
+        <div className="card" style={{ border: '1px solid rgba(234,179,8,0.3)' }}>
+          <div className="card-header" style={{ background: 'rgba(234,179,8,0.06)' }}>
+            <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--yellow)' }}>⚡ You have {offeredCollabs.length} offer{offeredCollabs.length > 1 ? 's' : ''} waiting</span>
+            <button className="btn" onClick={() => router.push('/my-collabs')}>Review Now</button>
+          </div>
+          {offeredCollabs.map(c => (
+            <div key={c.id} style={{ padding: '14px 20px', borderBottom: '0.5px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ fontWeight: 500, fontSize: '13px' }}>{c.restaurants?.name}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text3)' }}>{c.collab_date || 'Date TBD'} · ${c.creator_pay}</div>
+              </div>
+              <button className="btn btn-primary" style={{ fontSize: '12px', padding: '6px 12px' }} onClick={() => router.push('/my-collabs')}>
+                View Offer
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Upcoming confirmed collabs */}
       {activeCollabs.length > 0 && (
         <div className="card">
           <div className="card-header"><span className="card-title">Upcoming Collaboration</span></div>
