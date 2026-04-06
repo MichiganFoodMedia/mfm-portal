@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import AdminLayout from '../../components/AdminLayout'
 import { supabase } from '../../lib/supabase'
-
+ 
 function generateCode() {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
   let code = 'MFMC-'
   for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)]
   return code
 }
-
+ 
 export default function AdminCodes() {
   const router = useRouter()
   const [profile, setProfile] = useState(null)
@@ -20,7 +20,7 @@ export default function AdminCodes() {
   const [saving, setSaving] = useState(false)
   const [loading, setLoading] = useState(true)
   const [copied, setCopied] = useState(false)
-
+ 
   useEffect(() => {
     async function load() {
       const { data: { user } } = await supabase.auth.getUser()
@@ -34,14 +34,14 @@ export default function AdminCodes() {
     }
     load()
   }, [])
-
+ 
   async function createCode(e) {
     e.preventDefault()
     setSaving(true)
     const code = generateCode()
     const expiresAt = new Date()
     expiresAt.setDate(expiresAt.getDate() + parseInt(form.expiry))
-
+ 
     const { data } = await supabase.from('activation_codes').insert({
       code,
       created_for_name: form.name,
@@ -49,40 +49,45 @@ export default function AdminCodes() {
       expires_at: expiresAt.toISOString(),
       used: false
     }).select().single()
-
+ 
     if (data) {
       setCodes(prev => [data, ...prev])
       setGeneratedCode(code)
     }
     setSaving(false)
   }
-
+ 
   function copyCode() {
     navigator.clipboard.writeText(generatedCode)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
-
+ 
   function resetModal() {
     setShowModal(false)
     setGeneratedCode('')
     setForm({ name: '', email: '', expiry: '30' })
   }
-
+ 
+  async function deleteCode(id) {
+    await supabase.from('activation_codes').delete().eq('id', id)
+    setCodes(prev => prev.filter(c => c.id !== id))
+  }
+ 
   if (loading) return <div className="loading-screen">Loading...</div>
-
+ 
   return (
     <AdminLayout profile={profile} title="Invite Codes" actions={
       <button className="btn btn-primary" onClick={() => setShowModal(true)}>+ Generate Code</button>
     }>
       <div className="card">
-        <div className="table-head" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr 80px' }}>
-          <span>Code</span><span>Created For</span><span>Expires</span><span>Status</span><span>Used By</span>
+        <div className="table-head" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr 1fr 60px' }}>
+          <span>Code</span><span>Created For</span><span>Expires</span><span>Status</span><span>Used By</span><span></span>
         </div>
         {codes.length === 0 ? (
           <div style={{ padding: '32px', textAlign: 'center', color: 'var(--text3)', fontSize: '13px' }}>No codes yet. Generate one to invite a creator.</div>
         ) : codes.map(c => (
-          <div key={c.id} className="table-row" style={{ gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr 80px' }}>
+          <div key={c.id} className="table-row" style={{ gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr 1fr 60px' }}>
             <div style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '1px', fontSize: '14px' }}>{c.code}</div>
             <div>
               <div className="cell-main">{c.created_for_name || '—'}</div>
@@ -95,10 +100,13 @@ export default function AdminCodes() {
               </span>
             </div>
             <div className="cell-muted">{c.profiles?.full_name || '—'}</div>
+            <div>
+              <button className="btn btn-danger" style={{ padding: '4px 8px', fontSize: '11px' }} onClick={() => deleteCode(c.id)}>Delete</button>
+            </div>
           </div>
         ))}
       </div>
-
+ 
       {showModal && (
         <div className="modal-backdrop" onClick={e => { if (e.target.classList.contains('modal-backdrop')) resetModal() }}>
           <div className="modal-box">
