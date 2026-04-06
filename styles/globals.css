@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 }
-
+ 
 :root {
   --bg: #0a0a0a;
   --bg2: #111111;
@@ -21,7 +21,7 @@
   --blue: #3b82f6;
   --radius: 10px;
 }
-
+ 
 html, body {
   background: var(--bg);
   color: var(--text);
@@ -30,18 +30,18 @@ html, body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
-
+ 
 a { color: inherit; text-decoration: none; }
-
+ 
 button {
   font-family: inherit;
   cursor: pointer;
 }
-
+ 
 input, select, textarea {
   font-family: inherit;
 }
-
+ 
 .btn {
   padding: 9px 18px;
   border-radius: 8px;
@@ -57,26 +57,26 @@ input, select, textarea {
   gap: 6px;
 }
 .btn:hover { background: var(--accent-dim); }
-
+ 
 .btn-primary {
   background: var(--text);
   color: var(--bg);
   border-color: var(--text);
 }
 .btn-primary:hover { opacity: 0.88; background: var(--text); }
-
+ 
 .btn-danger {
   color: var(--red);
   border-color: rgba(239,68,68,0.3);
 }
 .btn-danger:hover { background: rgba(239,68,68,0.08); }
-
+ 
 /* Layout */
 .app-layout {
   display: flex;
   min-height: 100vh;
 }
-
+ 
 /* Sidebar */
 .sidebar {
   width: 224px;
@@ -92,20 +92,20 @@ input, select, textarea {
   height: 100vh;
   z-index: 20;
 }
-
+ 
 .sidebar-logo {
   padding: 0 20px 24px;
   border-bottom: 0.5px solid var(--border);
   margin-bottom: 16px;
 }
-
+ 
 .sidebar-logo-text {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: -0.2px;
   line-height: 1.3;
 }
-
+ 
 .sidebar-logo-sub {
   font-size: 10px;
   color: var(--text3);
@@ -113,12 +113,12 @@ input, select, textarea {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-
+ 
 .sidebar-nav {
   padding: 0 12px;
   flex: 1;
 }
-
+ 
 .nav-item {
   display: flex;
   align-items: center;
@@ -135,7 +135,7 @@ input, select, textarea {
 }
 .nav-item:hover { background: var(--accent-dim); color: var(--text); }
 .nav-item.active { background: var(--accent-dim); color: var(--text); border-color: var(--border2); }
-
+ 
 .nav-badge {
   margin-left: auto;
   background: var(--text);
@@ -145,13 +145,13 @@ input, select, textarea {
   padding: 1px 6px;
   border-radius: 20px;
 }
-
+ 
 .sidebar-footer {
   margin-top: auto;
   padding: 16px 12px 0;
   border-top: 0.5px solid var(--border);
 }
-
+ 
 .user-pill {
   display: flex;
   align-items: center;
@@ -162,7 +162,7 @@ input, select, textarea {
   transition: all 0.15s;
 }
 .user-pill:hover { background: var(--accent-dim); }
-
+ 
 .avatar {
   width: 30px;
   height: 30px;
@@ -176,7 +176,7 @@ input, select, textarea {
   flex-shrink: 0;
   color: var(--text);
 }
-
+ 
 /* Main content */
 .main-content {
   flex: 1;
@@ -185,7 +185,7 @@ input, select, textarea {
   display: flex;
   flex-direction: column;
 }
-
+ 
 .topbar {
   background: var(--bg2);
   border-bottom: 0.5px solid var(--border);
@@ -197,18 +197,18 @@ input, select, textarea {
   top: 0;
   z-index: 10;
 }
-
+ 
 .topbar-title {
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.3px;
 }
-
+ 
 .page-content {
   padding: 28px;
   flex: 1;
 }
-
+ 
 /* Cards */
 .card {
   background: var(--bg2);
@@ -217,7 +217,7 @@ input, select, textarea {
   overflow: hidden;
   margin-bottom: 16px;
 }
-
+ 
 .card-header {
   padding: 16px 20px;
   border-bottom: 0.5px solid var(--border);
@@ -225,12 +225,12 @@ input, select, textarea {
   align-items: center;
   justify-content: space-between;
 }
-
+ 
 .card-title {
   font-size: 14px;
   font-weight: 600;
 }
-
+ 
 /* Stats */
 .stats-grid {
   display: grid;
@@ -238,14 +238,14 @@ input, select, textarea {
   gap: 14px;
   margin-bottom: 24px;
 }
-
+ 
 .stat-card {
   background: var(--bg2);
   border: 0.5px solid var(--border);
   border-radius: 12px;
   padding: 18px;
 }
-
+ 
 .stat-label {
   font-size: 11px;
   color: var(--text3);
@@ -253,19 +253,19 @@ input, select, textarea {
   letter-spacing: 0.6px;
   margin-bottom: 8px;
 }
-
+ 
 .stat-value {
   font-size: 26px;
   font-weight: 600;
   letter-spacing: -0.5px;
 }
-
+ 
 .stat-sub {
   font-size: 12px;
   color: var(--text3);
   margin-top: 4px;
 }
-
+ 
 /* Table */
 .table-head {
   display: grid;
@@ -278,7 +278,7 @@ input, select, textarea {
   align-items: center;
   gap: 12px;
 }
-
+ 
 .table-row {
   display: grid;
   padding: 13px 20px;
@@ -290,17 +290,17 @@ input, select, textarea {
 }
 .table-row:last-child { border-bottom: none; }
 .table-row:hover { background: var(--accent-dim); }
-
+ 
 .cell-main { font-size: 13px; font-weight: 500; }
 .cell-muted { font-size: 13px; color: var(--text2); }
 .cell-sub { font-size: 11px; color: var(--text3); margin-top: 1px; }
-
+ 
 .name-cell {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
+ 
 .sm-avatar {
   width: 30px;
   height: 30px;
@@ -313,7 +313,7 @@ input, select, textarea {
   font-weight: 700;
   flex-shrink: 0;
 }
-
+ 
 /* Badges */
 .badge {
   display: inline-flex;
@@ -328,13 +328,13 @@ input, select, textarea {
 .badge-red { background: rgba(239,68,68,0.12); color: var(--red); }
 .badge-blue { background: rgba(59,130,246,0.12); color: var(--blue); }
 .badge-gray { background: var(--bg4); color: var(--text2); }
-
+ 
 /* Auth pages */
 .auth-wrap {
   display: flex;
   min-height: 100vh;
 }
-
+ 
 .auth-left {
   flex: 1;
   display: flex;
@@ -343,7 +343,7 @@ input, select, textarea {
   padding: 60px;
   border-right: 0.5px solid var(--border);
 }
-
+ 
 .auth-portal-label {
   font-size: 11px;
   color: var(--text3);
@@ -351,7 +351,7 @@ input, select, textarea {
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
-
+ 
 .auth-portal-title {
   font-size: 32px;
   font-weight: 700;
@@ -359,21 +359,21 @@ input, select, textarea {
   line-height: 1.15;
   margin-bottom: 16px;
 }
-
+ 
 .auth-portal-sub {
   font-size: 14px;
   color: var(--text2);
   line-height: 1.6;
   max-width: 320px;
 }
-
+ 
 .auth-features {
   margin-top: 48px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-
+ 
 .auth-feature {
   display: flex;
   align-items: center;
@@ -381,7 +381,7 @@ input, select, textarea {
   font-size: 13px;
   color: var(--text2);
 }
-
+ 
 .auth-feature-dot {
   width: 6px;
   height: 6px;
@@ -389,7 +389,7 @@ input, select, textarea {
   background: var(--text3);
   flex-shrink: 0;
 }
-
+ 
 .auth-right {
   width: 420px;
   display: flex;
@@ -399,31 +399,31 @@ input, select, textarea {
   flex-shrink: 0;
   overflow-y: auto;
 }
-
+ 
 .auth-box { width: 100%; }
-
+ 
 .auth-title {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.4px;
   margin-bottom: 4px;
 }
-
+ 
 .auth-sub {
   font-size: 13px;
   color: var(--text3);
   margin-bottom: 28px;
 }
-
+ 
 .field { margin-bottom: 14px; }
-
+ 
 .field label {
   display: block;
   font-size: 12px;
   color: var(--text2);
   margin-bottom: 6px;
 }
-
+ 
 .field input, .field select {
   width: 100%;
   padding: 10px 12px;
@@ -437,10 +437,10 @@ input, select, textarea {
 }
 .field input:focus, .field select:focus { border-color: var(--text2); }
 .field input.error { border-color: var(--red); }
-
+ 
 .error-msg { font-size: 12px; color: var(--red); margin-top: 5px; }
 .hint-msg { font-size: 12px; color: var(--text3); margin-top: 5px; }
-
+ 
 .auth-switch {
   text-align: center;
   margin-top: 20px;
@@ -448,13 +448,13 @@ input, select, textarea {
   color: var(--text3);
 }
 .auth-switch a { color: var(--text2); text-decoration: underline; }
-
+ 
 .divider {
   border: none;
   border-top: 0.5px solid var(--border);
   margin: 20px 0;
 }
-
+ 
 .admin-link {
   text-align: center;
   font-size: 12px;
@@ -462,7 +462,7 @@ input, select, textarea {
 }
 .admin-link a { color: var(--text3); }
 .admin-link a:hover { color: var(--text2); }
-
+ 
 /* Agreement */
 .agreement-wrap {
   min-height: 100vh;
@@ -472,7 +472,7 @@ input, select, textarea {
   justify-content: center;
   padding: 24px;
 }
-
+ 
 .agreement-box {
   background: var(--bg2);
   border: 0.5px solid var(--border);
@@ -481,7 +481,7 @@ input, select, textarea {
   width: 100%;
   max-width: 540px;
 }
-
+ 
 .agreement-scroll {
   font-size: 13px;
   color: var(--text2);
@@ -494,7 +494,7 @@ input, select, textarea {
   border: 0.5px solid var(--border);
   margin: 16px 0;
 }
-
+ 
 .check-row {
   display: flex;
   align-items: flex-start;
@@ -503,7 +503,7 @@ input, select, textarea {
 }
 .check-row input { margin-top: 2px; flex-shrink: 0; }
 .check-label { font-size: 13px; color: var(--text2); line-height: 1.5; }
-
+ 
 /* Modal */
 .modal-backdrop {
   position: fixed;
@@ -515,7 +515,7 @@ input, select, textarea {
   z-index: 100;
   padding: 20px;
 }
-
+ 
 .modal-box {
   background: var(--bg2);
   border: 0.5px solid var(--border);
@@ -526,14 +526,14 @@ input, select, textarea {
   max-height: 90vh;
   overflow-y: auto;
 }
-
+ 
 .modal-title {
   font-size: 17px;
   font-weight: 600;
   margin-bottom: 20px;
   letter-spacing: -0.3px;
 }
-
+ 
 .form-field { margin-bottom: 14px; }
 .form-field label { display: block; font-size: 12px; color: var(--text2); margin-bottom: 5px; }
 .form-field input,
@@ -550,7 +550,7 @@ input, select, textarea {
 }
 .form-field textarea { min-height: 80px; resize: vertical; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
+ 
 /* Messages */
 .msg-item {
   display: flex;
@@ -562,7 +562,7 @@ input, select, textarea {
 }
 .msg-item:last-child { border-bottom: none; }
 .msg-item:hover { background: var(--accent-dim); }
-
+ 
 .msg-avatar {
   width: 36px;
   height: 36px;
@@ -575,12 +575,12 @@ input, select, textarea {
   font-weight: 700;
   flex-shrink: 0;
 }
-
+ 
 .msg-content { flex: 1; min-width: 0; }
 .msg-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
 .msg-preview { font-size: 12px; color: var(--text3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .msg-time { font-size: 11px; color: var(--text3); flex-shrink: 0; }
-
+ 
 .unread-dot {
   width: 7px;
   height: 7px;
@@ -589,14 +589,14 @@ input, select, textarea {
   flex-shrink: 0;
   margin-top: 6px;
 }
-
+ 
 /* Thread */
 .thread-wrap { display: flex; flex-direction: column; height: 500px; }
 .thread-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .bubble-wrap { display: flex; flex-direction: column; }
 .bubble-wrap.out { align-items: flex-end; }
 .bubble-wrap.in { align-items: flex-start; }
-
+ 
 .bubble {
   max-width: 72%;
   padding: 10px 14px;
@@ -607,7 +607,7 @@ input, select, textarea {
 .bubble.out { background: var(--text); color: var(--bg); border-bottom-right-radius: 4px; }
 .bubble.in { background: var(--bg3); color: var(--text); border-bottom-left-radius: 4px; }
 .bubble-time { font-size: 11px; color: var(--text3); margin-top: 4px; }
-
+ 
 .thread-input {
   border-top: 0.5px solid var(--border);
   padding: 12px 16px;
@@ -624,7 +624,7 @@ input, select, textarea {
   font-size: 13px;
   outline: none;
 }
-
+ 
 /* Collab cards */
 .collab-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .collab-card {
@@ -633,7 +633,7 @@ input, select, textarea {
   border-radius: 12px;
   padding: 18px;
 }
-
+ 
 /* Profile */
 .profile-section {
   background: var(--bg2);
@@ -661,7 +661,7 @@ input, select, textarea {
 }
 .profile-row:last-child { border-bottom: none; }
 .profile-val { color: var(--text2); }
-
+ 
 /* Loading */
 .loading-screen {
   display: flex;
@@ -672,7 +672,7 @@ input, select, textarea {
   color: var(--text3);
   font-size: 13px;
 }
-
+ 
 /* Earnings */
 .earnings-row {
   display: flex;
@@ -683,7 +683,7 @@ input, select, textarea {
   font-size: 13px;
 }
 .earnings-row:last-child { border-bottom: none; }
-
+ 
 /* Code display */
 .code-display {
   background: var(--bg3);
@@ -695,7 +695,7 @@ input, select, textarea {
 .code-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
 .code-value { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
 .code-hint { font-size: 12px; color: var(--text3); margin-top: 6px; }
-
+ 
 .alert {
   padding: 12px 16px;
   border-radius: 8px;
@@ -704,3 +704,163 @@ input, select, textarea {
 }
 .alert-error { background: rgba(239,68,68,0.1); border: 0.5px solid rgba(239,68,68,0.3); color: var(--red); }
 .alert-success { background: rgba(34,197,94,0.1); border: 0.5px solid rgba(34,197,94,0.3); color: var(--green); }
+ 
+/* ================================================
+   MOBILE RESPONSIVE STYLES
+   ================================================ */
+ 
+/* Mobile menu toggle button - hidden on desktop */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-right: 8px;
+}
+ 
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 19;
+}
+ 
+@media (max-width: 768px) {
+  /* Show mobile menu button */
+  .mobile-menu-btn { display: block; }
+ 
+  /* Sidebar becomes a slide-in drawer */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 21;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar-overlay.open {
+    display: block;
+  }
+ 
+  /* Main content takes full width */
+  .main-content {
+    margin-left: 0;
+  }
+ 
+  /* Topbar */
+  .topbar {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+  .topbar-title {
+    font-size: 15px;
+  }
+ 
+  /* Page content */
+  .page-content {
+    padding: 16px;
+  }
+ 
+  /* Stats grid - 2 columns on mobile */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .stat-value {
+    font-size: 20px;
+  }
+ 
+  /* Tables - hide less important columns on mobile */
+  .table-head,
+  .table-row {
+    padding: 10px 14px;
+  }
+ 
+  /* Collab cards - single column */
+  .collab-cards {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Auth pages - stack vertically */
+  .auth-wrap {
+    flex-direction: column;
+  }
+  .auth-left {
+    padding: 32px 24px 24px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .auth-portal-title {
+    font-size: 22px;
+  }
+  .auth-features {
+    display: none;
+  }
+  .auth-right {
+    width: 100%;
+    padding: 24px;
+  }
+ 
+  /* Agreement box */
+  .agreement-box {
+    padding: 24px 20px;
+  }
+ 
+  /* Modal */
+  .modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal-box {
+    border-radius: 16px 16px 0 0;
+    max-height: 85vh;
+    padding: 24px 20px;
+  }
+ 
+  /* Form rows - stack on mobile */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Messages thread */
+  .thread-wrap {
+    height: 420px;
+  }
+ 
+  /* Admin messages layout - stack */
+  .admin-messages-grid {
+    grid-template-columns: 1fr !important;
+  }
+ 
+  /* Profile section */
+  .profile-section {
+    max-width: 100%;
+  }
+ 
+  /* Card headers */
+  .card-header {
+    padding: 12px 16px;
+  }
+ 
+  /* Buttons in topbar */
+  .topbar-actions .btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+ 
+  /* Earnings grid */
+  .earnings-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+ 
+  /* Hide some table columns on very small screens */
+  .hide-mobile {
+    display: none;
+  }
+}
+ 
