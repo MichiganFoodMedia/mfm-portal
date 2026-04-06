@@ -13,7 +13,7 @@ const NAV = [
 ]
 
 function Badge({ status }) {
-  const map = { confirmed: 'badge-green', open: 'badge-blue', pending: 'badge-yellow', completed: 'badge-green', cancelled: 'badge-red', offered: 'badge-yellow', adjustment_requested: 'badge-yellow' }
+  const map = { confirmed: 'badge-green', open: 'badge-blue', pending: 'badge-yellow', completed: 'badge-green', denied: 'badge-red', cancelled: 'badge-red', offered: 'badge-yellow', adjustment_requested: 'badge-yellow' }
   return <span className={`badge ${map[status] || 'badge-gray'}`}>{status.replace('_', ' ')}</span>
 }
 
@@ -55,7 +55,7 @@ export default function MyCollabs() {
   }
 
   async function denyCollab(id) {
-    await supabase.from('collaborations').update({ status: 'cancelled', creator_id: null }).eq('id', id)
+    await supabase.from('collaborations').update({ status: 'denied', creator_id: null }).eq('id', id)
     setCollabs(prev => prev.filter(c => c.id !== id))
   }
 
