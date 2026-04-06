@@ -70,7 +70,7 @@ export default function Signup() {
       id: userId,
       full_name: form.fullName,
       email: form.email,
-      role: 'creator',
+      role: codeRecord.role || 'creator',
       instagram_handle: form.instagram,
       tiktok_handle: form.tiktok,
       location: form.location,
