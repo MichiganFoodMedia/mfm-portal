@@ -17,7 +17,7 @@ export default function Agreement() {
       agreed_at: new Date().toISOString()
     }).eq('id', user.id)
 
-    router.push('/dashboard')
+    const { data: prof } = await supabase.from('profiles').select('role').eq('id', user.id).single(); router.push(prof?.role === 'admin' ? '/admin/dashboard' : '/dashboard')
   }
 
   return (
